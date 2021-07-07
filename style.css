@@ -1,5 +1,6 @@
 body{font-family: 'VT323', monospace;
     color:#55FF55;
+    
 }
 h1{
     text-align:center;
@@ -8,6 +9,7 @@ h1{
 h3{
     text-align:center;
     font-size: 32px;
+    overflow:hidden;
 }
 svg {
     background: hsl(0, 0%, 0%);
@@ -90,3 +92,55 @@ svg.star-background {
     min-width: 100%;
     height: 100%;
   }
+  .pre-text{
+      display:block;
+  }
+  .maingame{
+      display:none;
+      
+  }
+  .startgame{
+      border: 3px solid #55FF55;
+      width: 200px;
+      height: 50px;
+      background: transparent;
+      color: #55FF55;
+      font-family: 'VT323', monospace;
+      font-size: 24px;
+      position:relative;
+      left: 40%;
+  }
+  button:hover{
+    animation: fillin 5s linear;
+  }
+  @keyframes fillin {
+      0%{background:transparent;
+    color:#55FF55;}
+
+  5%{
+      background:#55FF55;
+      color:black;
+  }
+  100%{
+      background:#55ff55;
+      color:black;
+  }
+}
+.pre-text h3{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 20px auto; /* Gives that scrolling effect as the typing happens */
+
+    animation: 
+      typing 3.5s steps(40, end);
+      animation-delay: 2s;
+      
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  

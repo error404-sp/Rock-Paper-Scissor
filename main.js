@@ -27,7 +27,16 @@ function playRound(playerSelection,computerSelection){   //to determine result o
     }    
     
 }
+//ui
+const startButton = document.querySelector('.startgame');
+const introText = document.querySelector(".pre-text");
+const mainGame = document.querySelector(".maingame");
+startButton.addEventListener('click',e=>{
+    introText.style.display = "none";
+    mainGame.style.display = "block";
+    
 
+});
 // to play 5 rounds
 // for(i=0;i<5;i++){
 //     playRound(prompt("Rock,Paper or Scissor??","Rock"),computerPlay()); 
