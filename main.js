@@ -29,21 +29,21 @@ function playRound(playerSelection,computerSelection){   //to determine result o
 }
 
 // to play 5 rounds
-for(i=0;i<5;i++){
-    playRound(prompt("Rock,Paper or Scissor??","Rock"),computerPlay()); 
+// for(i=0;i<5;i++){
+//     playRound(prompt("Rock,Paper or Scissor??","Rock"),computerPlay()); 
    
- }
- console.log(score);
+//  }
+//  console.log(score);
 
-function game(){  //to determine result of game
+// function game(){  //to determine result of game
   
   
-   if(score>5-score){
-       return "You won the game";
-   }
-   else{
-       return "You lost the game!";
-   }
-}
-console.log(game());
+//    if(score>5-score){
+//        return "You won the game";
+//    }
+//    else{
+//        return "You lost the game!";
+//    }
+// }
+// console.log(game());
 
