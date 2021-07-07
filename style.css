@@ -126,21 +126,9 @@ svg.star-background {
       color:black;
   }
 }
-.pre-text h3{
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 20px auto; /* Gives that scrolling effect as the typing happens */
 
-    animation: 
-      typing 3.5s steps(40, end);
-      animation-delay: 2s;
-      
-  }
-  
-  /* The typing effect */
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
+.spaceship{
+    position:absolute;
+    right: 20px;
+}
   
