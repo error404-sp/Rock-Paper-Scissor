@@ -1,10 +1,51 @@
+//ui
+const startButton = document.querySelector('.startgame');
+const introText = document.querySelector(".pre-text");
+const mainGame = document.querySelector(".maingame");
+startButton.addEventListener('click',e=>{
+    introText.style.display = "none";
+    mainGame.style.display = "block";
+    
+
+});
+const rock = document.querySelector(".displaychoiceplayer .rock");
+const scissor = document.querySelector(".displaychoiceplayer .scissor");
+const paper = document.querySelector(".displaychoiceplayer .paper");
+const buttons = document.querySelectorAll(".options button");
+const displayplayer = document.querySelector(".displayplayer");
+
+buttons.forEach(button =>{
+button.addEventListener('click',playerChoice);
+function playerChoice(){
+    console.log(this.getAttribute('class'));
+    const playerSign = document.getElementById("player-sign");
+    playerSign.classList.add("active");
+    const playerSignClassName = `fa-hand-${this.getAttribute('class').toLowerCase()}`;
+    playerSign.classList = `fas ${playerSignClassName} active`;
+    computerChoice();
+    return this.getAttribute('class');
+}
+
+}
+);
+
 function computerPlay(){   //to generate random choices as Computer
-    let gameOptions = ["Rock","Paper","Scissor"];
+    let gameOptions = ["Rock","Paper","Scissors"];
     let a = Math.floor(Math.random()*3);
-  
+    console.log(gameOptions[a]);
     return gameOptions[a];
 }
-let score = 0;
+
+
+
+function computerChoice(){
+    const computerSign = document.getElementById("computer-sign");
+    computerSign.classList.add("active");
+    const computerSignClassName = `fa-hand-${computerPlay().toLowerCase()}`;
+    computerSign.classList = `fas ${computerSignClassName} active`;
+}
+
+
 
 function playRound(playerSelection,computerSelection){   //to determine result of the round
    
@@ -27,32 +68,5 @@ function playRound(playerSelection,computerSelection){   //to determine result o
     }    
     
 }
-//ui
-const startButton = document.querySelector('.startgame');
-const introText = document.querySelector(".pre-text");
-const mainGame = document.querySelector(".maingame");
-startButton.addEventListener('click',e=>{
-    introText.style.display = "none";
-    mainGame.style.display = "block";
-    
 
-});
-// to play 5 rounds
-// for(i=0;i<5;i++){
-//     playRound(prompt("Rock,Paper or Scissor??","Rock"),computerPlay()); 
-   
-//  }
-//  console.log(score);
-
-// function game(){  //to determine result of game
   
-  
-//    if(score>5-score){
-//        return "You won the game";
-//    }
-//    else{
-//        return "You lost the game!";
-//    }
-// }
-// console.log(game());
-
