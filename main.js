@@ -2,8 +2,19 @@
 const startButton = document.querySelector('.startgame');
 const introText = document.querySelector(".pre-text");
 const mainGame = document.querySelector(".maingame");
+const scoreplayer = document.querySelector(".scoreplayer");
+const scorecomputer = document.querySelector(".scorecomputer");
+const roundwinner = document.querySelector(".roundwinner");
+const endGame = document.querySelector(".endGame");
+const winOrLose = document.querySelector('.winorlose');
+const score = document.querySelector('.score');
+
+endGame.style.display = "none";
+
+
 startButton.addEventListener('click',e=>{
     introText.style.display = "none";
+    endGame.style.display = "none";
     mainGame.style.display = "block";
     
 
@@ -17,12 +28,14 @@ const displayplayer = document.querySelector(".displayplayer");
 buttons.forEach(button =>{
 button.addEventListener('click',playerChoice);
 function playerChoice(){
-    console.log(this.getAttribute('class'));
+    let player = this.getAttribute('class');
     const playerSign = document.getElementById("player-sign");
     playerSign.classList.add("active");
     const playerSignClassName = `fa-hand-${this.getAttribute('class').toLowerCase()}`;
     playerSign.classList = `fas ${playerSignClassName} active`;
-    computerChoice();
+    let computer = computerChoice();
+    scoreUpdate(computer,player);
+    GameOver();
     return this.getAttribute('class');
 }
 
@@ -30,7 +43,7 @@ function playerChoice(){
 );
 
 function computerPlay(){   //to generate random choices as Computer
-    let gameOptions = ["Rock","Paper","Scissors"];
+    let gameOptions = ["rock","paper","scissors"];
     let a = Math.floor(Math.random()*3);
     console.log(gameOptions[a]);
     return gameOptions[a];
@@ -39,34 +52,48 @@ function computerPlay(){   //to generate random choices as Computer
 
 
 function computerChoice(){
+    let computer = computerPlay();
     const computerSign = document.getElementById("computer-sign");
     computerSign.classList.add("active");
-    const computerSignClassName = `fa-hand-${computerPlay().toLowerCase()}`;
+    const computerSignClassName = `fa-hand-${computer.toLowerCase()}`;
     computerSign.classList = `fas ${computerSignClassName} active`;
+    return computer;
 }
+let scorePlayer = 0;
+let scoreComputer = 0;
+function scoreUpdate(computerSelection,playerSelection){
+ if(playerSelection == computerSelection){
+     roundwinner.textContent = "Tie";
+     
+ }
+ else if((playerSelection == "ROCK".toLowerCase() && computerSelection == "PAPER".toLowerCase())||(playerSelection == "SCISSORS".toLowerCase() && computerSelection == "ROCK".toLowerCase()) || (playerSelection == "PAPER".toLowerCase() && computerSelection == "SCISSORS".toLowerCase())){
+    scoreComputer++;
+    console.log(scoreComputer);
+    scorecomputer.textContent = `Score:${scoreComputer}`;
+    roundwinner.textContent = "Alien wins!"
 
+ }
+ else if((playerSelection == "PAPER".toLowerCase() && computerSelection == "ROCK".toLowerCase())||(playerSelection == "ROCK".toLowerCase() && computerSelection == "SCISSORS".toLowerCase()) || (playerSelection == "SCISSORS".toLowerCase() && computerSelection == "PAPER".toLowerCase())){
+ scorePlayer++ ;
+  scoreplayer.textContent = `Score:${scorePlayer}`;
+  roundwinner.textContent = "Man wins!"
 
-
-function playRound(playerSelection,computerSelection){   //to determine result of the round
-   
-    if(playerSelection==computerSelection){
-        console.log("It's a Tie!");
-        return "It's a Tie!";
+}
+}
+function GameOver(){
+    if(scorePlayer == 5 || scoreComputer == 5){
+        mainGame.style.display = "none";
+        endGame.style.display = "block";
+     if(scorePlayer == 5){
+         score.textContent = `${scorePlayer} : ${scoreComputer}`;
+         winOrLose.textContent = "Congratulations! You saved the planet!You won";
+     }
+     else{
+        score.textContent = `${scorePlayer} : ${scoreComputer}`;
+         winOrLose.textContent = "Unfortunately! You lost :(";
+     }
     }
-    else if((playerSelection.toLowerCase() == "Rock".toLowerCase()  && computerSelection.toLowerCase() == "Paper".toLowerCase())
-        || (playerSelection.toLowerCase() == "Paper".toLowerCase() && computerSelection.toLowerCase() == "Scissor".toLowerCase()) ||
-        (playerSelection == "Scissor".toLowerCase() && computerSelection == "Rock".toLowerCase()) ){
-            
-            console.log("You Lost! Try again")
-            return "You Lost! Try again";
-        }
-    else{
-        console.log("Congratulations! You won!!");
-        score++;
-        return "Congratulations! You won!!";
-        
-    }    
-    
 }
 
-  
+
+

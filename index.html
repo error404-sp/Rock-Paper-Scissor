@@ -19,6 +19,7 @@
 <body>
     
     <div class='pre-text'>
+        <div class=".container">
         <svg class="spaceship" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="100" height="100"
 viewBox="0 0 172 172"
@@ -29,8 +30,10 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
     <h3>Unless if you can defeat them in a game of Rock,Paper,Scissor</h3>
     <h3>Do you have what it take to save mankind?</h3>
     <button class="startgame">Start Game</button>
-</div>
+</div></div>
+
     <div class="maingame">
+        <div class=".container">
         <h1>Rock Paper Scissor</h1>
         <div class="flexbox1">
         <div class="options">
@@ -51,16 +54,22 @@ style=" fill:#000000;"><g transform="translate(1.462,1.462) scale(0.983,0.983)">
     <div class="displaychoiceplayer">
         <h3 class="desc">Man</h3>
         <i class="fas fa-hand-paper" id="player-sign"></i>
-        <h3 class="scoreplayer">Score: </h3>
+        <h3 class="scoreplayer">Score:0</h3>
     </div>
-    
+    <div><p class="roundwinner"></p></div>
     <div class="displaychoicecomputer">
         <h3 class="desc">Alien</h3>
         <i class="fas fa-hand-rock" id="computer-sign"></i>
-        <h3 class="scorecomputer">Score: </h3>
+        <h3 class="scorecomputer">Score:0 </h3>
         
-    </div></div></div></div>
-    
+    </div></div></div></div></div>
+    <div class ="endGame">
+        <div class=".container">
+        <h1>Game Over</h1>
+        <h3 class = "score"></h3>
+        <h3 class="winorlose"></h3>
+        <h3 class="playAgain">Press F5 / Refresh to Play Again</h3>
+    </div></div>
 </body>
 <script src="main.js"></script>
 </html>

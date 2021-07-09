@@ -6,6 +6,13 @@ body{font-family: 'VT323', monospace;
     
 background-color: black;
 }
+.container{
+    max-width: 1440px;
+    height: 100%;
+    margin:0 auto;
+    padding: 0 2.5em;
+
+}
 
 h1{
     text-align:center;
@@ -81,10 +88,13 @@ h3{
 .flexbox{
     
     display:flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: flex-start;
 }
-
+.roundwinner{
+    position:absolute;
+    top: 35%;
+}
 
 
 
@@ -112,6 +122,56 @@ h3{
   .desc{
       position:absolute;
       top: 20%;
+  }
+  .scorecomputer{
+      position:absolute;
+      top: 75%;
+  }
+  @media (max-width:780px){
+      h1{
+          font-size: 48px;
+      }
+      h3{
+          font-size:24px;
+      }
+      .startgame{
+          left: 90px;
+      }
+      .options{
+          flex-direction: row;
+          
+      }
+      .flexbox{
+          position: relative;
+          left: -60px;
+          justify-content: space-around;
+      }
+      .options button{
+          transform: scale(0.5);
+      }
+      i{
+          transform:scale(0.5);
+         
+          
+      }
+      .fas{
+          top: 10vh;
+          
+      }
+      .scoreplayer{
+          top: 30vh;
+      }
+      .scorecomputer{
+          top: 30vh;
+      }
+    
+      .roundwinner{
+          display:none;
+      }
+      .spaceship{
+          display:none;
+      }
+      
   }
   
 
