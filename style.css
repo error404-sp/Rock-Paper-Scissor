@@ -127,6 +127,18 @@ h3{
       position:absolute;
       top: 75%;
   }
+
+  footer{
+    position:absolute;
+    text-align:center;
+    background: #55ff55;
+    color: black;
+    height: 20px;
+    padding: 10px 0;
+    font-size: 16px;
+    bottom:0;
+    width: 100vw;
+  }
   @media (max-width:780px){
       h1{
           font-size: 48px;
